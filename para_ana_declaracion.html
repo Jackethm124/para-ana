@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#100d2b">
+<title>Para Ana ✦</title>
+<style>
+:root{--night:#0b0920;--violet:#211544;--pink:#ff9ecb;--lav:#c9b6ff;--white:#fff8ff;--muted:#d8cce9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#30205a 0%,#15102f 38%,var(--night) 80%);color:var(--white);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;overflow-x:hidden}
+#sky{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.65;animation:twinkle 3s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.2;transform:scale(.7)}to{opacity:1;transform:scale(1.5)}}
+.heart-float{position:absolute;bottom:-30px;color:#ffacd5;opacity:0;animation:floatUp linear forwards;text-shadow:0 0 14px #ff76bd}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0deg);opacity:0}15%{opacity:.7}85%{opacity:.6}100%{transform:translateY(-110vh) rotate(28deg);opacity:0}}
+main{position:relative;z-index:1;width:min(100% - 28px,720px);margin:0 auto;padding:34px 0 55px}
+section{min-height:82vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:28px 18px}
+.card{width:100%;border:1px solid #ffffff25;background:linear-gradient(145deg,#24183dcc,#15102dcc);backdrop-filter:blur(10px);border-radius:28px;padding:clamp(24px,6vw,42px);box-shadow:0 20px 70px #0005}
+.eyebrow{color:var(--lav);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+h1{font-size:clamp(2.5rem,10vw,4.6rem);line-height:1.02;margin:16px 0;background:linear-gradient(90deg,#fff8ff,#ffb8dc,#c9b6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:clamp(1.8rem,7vw,2.7rem);line-height:1.12;margin:12px 0 18px}
+p{font-size:clamp(1rem,3.8vw,1.12rem);line-height:1.8;color:var(--muted);margin:12px 0}
+.big-heart{font-size:clamp(3rem,12vw,5rem);filter:drop-shadow(0 0 20px #ff73bd);animation:heartbeat 2s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}12%{transform:scale(1.1)}22%{transform:scale(1)}35%{transform:scale(1.06)}}
+button{font:inherit;cursor:pointer;border:0;border-radius:999px;padding:14px 21px;min-height:48px;transition:transform .18s,filter .18s}
+button:hover{transform:translateY(-2px);filter:brightness(1.08)}
+button:focus-visible{outline:3px solid white;outline-offset:4px}
+.primary{color:#27102c;background:linear-gradient(100deg,#ffc3e1,#d7c5ff);font-weight:800;box-shadow:0 8px 26px #ed8cc64d}
+.secondary{color:var(--white);background:#ffffff12;border:1px solid #ffffff38}
+.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px}
+.hidden{display:none!important}
+.progress{display:flex;gap:7px;justify-content:center;margin:22px 0 0}
+.dot{width:7px;height:7px;border-radius:50%;background:#ffffff35}.dot.on{background:var(--pink);box-shadow:0 0 10px var(--pink)}
+.note{font-size:.82rem;color:#b9a9d0;margin-top:18px}
+.letter{text-align:left;background:#fff9f2;color:#47344f;border-radius:18px;padding:clamp(22px,5vw,34px);box-shadow:0 10px 35px #0003;position:relative}
+.letter p{color:#59445d;font-family:Georgia,serif;font-size:1.05rem;line-height:1.9}
+.letter .sign{color:#8a4779;font-family:Georgia,serif;font-size:1.25rem;text-align:right;margin-top:22px}
+.question{border:1px solid #ffb5dc77;background:linear-gradient(145deg,#321b50ee,#17102eee)}
+footer{text-align:center;color:#a99abb;font-size:.8rem;padding:10px 8px 30px}
+#musicStatus{font-size:.85rem;color:var(--muted);margin-top:10px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div>
+<main>
+  <section id="welcome">
+    <div class="card">
+      <div class="eyebrow">Una pequeña sorpresa para alguien especial</div>
+      <div class="big-heart" aria-hidden="true">♡</div>
+      <h1>Hola, Ana</h1>
+      <p>Hice este rinconcito pensando en ti.<br>Así que ponte cómoda, respira y déjame contarte algo.</p>
+      <div class="actions"><button class="primary" id="startBtn">Abrir mi sorpresa ✦</button></div>
+      <p class="note">Hecho con cariño, especialmente para ti.</p>
+    </div>
+  </section>
+
+  <section id="story" class="hidden">
+    <div class="card">
+      <div class="eyebrow">Un pequeño secreto</div>
+      <h2>Hay algo que quería decirte</h2>
+      <p>No siempre encuentro las palabras exactas cuando quiero decir algo importante, pero hay algo que sí tengo claro: me gusta compartir mi tiempo contigo.</p>
+      <p>Me gustan nuestras pláticas, los ratitos en llamada y esa forma en que un día normal puede sentirse más bonito cuando apareces tú.</p>
+      <div class="actions"><button class="primary" id="nextBtn">Quiero contarte más →</button></div>
+      <div class="progress" aria-label="Paso 1 de 3"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+    </div>
+  </section>
+
+  <section id="letterSection" class="hidden">
+    <div class="card">
+      <div class="eyebrow">Unas palabras para ti</div>
+      <h2>Para mi estrellita ✨</h2>
+      <div class="letter">
+        <p>Hola, Ana:</p>
+        <p>Quería hacer algo diferente para decirte esto, porque no eres alguien que me dé igual. Me hace feliz poder hablar contigo, jugar, reírnos y compartir esos momentos que, aunque sean a distancia, se sienten especiales para mí.</p>
+        <p>No necesito que todo sea perfecto ni tenerte cerquita en este momento para saber que quiero seguir conociéndote y construir algo bonito contigo, paso a paso, con confianza, cariño y muchas ganas de estar el uno para el otro.</p>
+        <p>Me pongo nervioso pensando en cómo decirte todo esto, pero prefiero intentarlo a quedarme con las ganas. Así que aquí va lo que de verdad quería preguntarte…</p>
+        <p class="sign">Con mucho cariño,<br>alguien que piensa en ti ♡</p>
+      </div>
+      <div class="actions"><button class="primary" id="questionBtn">Hay algo que quiero preguntarte…</button></div>
+      <div class="progress" aria-label="Paso 2 de 3"><span class="dot"></span><span class="dot on"></span><span class="dot"></span></div>
+    </div>
+  </section>
+
+  <section id="questionSection" class="hidden">
+    <div class="card question">
+      <div class="big-heart" aria-hidden="true">💗</div>
+      <div class="eyebrow">Y ahora sí…</div>
+      <h2>Ana, ¿quieres ser mi novia?</h2>
+      <p>Me gustaría que empezáramos esta etapa juntos, incluso con la distancia de por medio. Quiero cuidarnos, compartir más momentos y ver qué tan bonito podemos hacer esto entre los dos.</p>
+      <p>Tómate tu tiempo para responder, quiero que lo que me digas salga de tu corazón.</p>
+      <div class="actions">
+        <button class="primary" id="yesBtn">Sí, quiero 💖</button>
+        <button class="secondary" id="talkBtn">Quiero hablarlo contigo</button>
+      </div>
+      <div class="progress" aria-label="Paso 3 de 3"><span class="dot"></span><span class="dot"></span><span class="dot on"></span></div>
+    </div>
+  </section>
+
+  <section id="answerSection" class="hidden">
+    <div class="card">
+      <div class="big-heart" aria-hidden="true">♡</div>
+      <h2 id="answerTitle">Gracias por escucharme</h2>
+      <p id="answerText">Lo más importante para mí es que podamos hablar con sinceridad. Gracias por llegar hasta aquí y leer algo que preparé con mucho cariño para ti.</p>
+      <div class="actions"><button class="secondary" id="replayBtn">Volver a leer desde el principio ↺</button></div>
+    </div>
+  </section>
+  <footer>Un cielo enorme, un montón de estrellas y una pregunta hecha con cariño. ✦</footer>
+</main>
+<script>
+const sky=document.getElementById('sky');
+for(let i=0;i<95;i++){const s=document.createElement('span');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(Math.random()*4)+'s';s.style.animationDuration=(2+Math.random()*4)+'s';s.style.opacity=(.25+Math.random()*.7);sky.appendChild(s)}
+function hearts(){const h=document.createElement('span');h.className='heart-float';h.textContent=['♡','✦','♥','✧'][Math.floor(Math.random()*4)];h.style.left=(5+Math.random()*90)+'%';h.style.fontSize=(12+Math.random()*20)+'px';h.style.animationDuration=(7+Math.random()*5)+'s';sky.appendChild(h);setTimeout(()=>h.remove(),12500)}
+setInterval(hearts,900);
+const ids=['welcome','story','letterSection','questionSection','answerSection'];
+function show(id){ids.forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));window.scrollTo({top:0,behavior:'smooth'})}
+document.getElementById('startBtn').onclick=()=>show('story');
+document.getElementById('nextBtn').onclick=()=>show('letterSection');
+document.getElementById('questionBtn').onclick=()=>show('questionSection');
+document.getElementById('yesBtn').onclick=()=>{document.getElementById('answerTitle').textContent='¿De verdad? Me haces muy feliz 💖';document.getElementById('answerText').textContent='No sabes la sonrisa que tengo en este momento. Gracias por darme esta oportunidad. Quiero que hagamos de esto algo bonito, con cariño, confianza y comunicación.';show('answerSection');for(let i=0;i<16;i++)setTimeout(hearts,i*100)};
+document.getElementById('talkBtn').onclick=()=>{document.getElementById('answerTitle').textContent='Hablemos con calma ♡';document.getElementById('answerText').textContent='Claro que sí. Lo que sientes importa y no tienes que decidir nada con presión. Me gustaría que lo platiquemos con honestidad y que ambos nos sintamos cómodos.';show('answerSection')};
+document.getElementById('replayBtn').onclick=()=>show('welcome');
+</script>
+</body>
+</html>
